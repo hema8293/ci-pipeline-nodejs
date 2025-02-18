@@ -4,8 +4,9 @@
   "description": "A simple Node.js CI Pipeline project using GitHub Actions",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "jest"
+  "start": "node server.js",
+  "test": "npx jest"
+}
   },
   "dependencies": {
     "express": "^4.18.2"
