@@ -1,42 +1,28 @@
 pipeline {
     agent any
-
-    environment {
-        DOCKER_CREDENTIAL_ID = 'docker-hub-credentials' // Ensure Jenkins credentials are added
-    }
-
     stages {
-        stage('Checkout') {
+        stage('Checkout Code') {
             steps {
-                checkout scm
+                git 'https://github.com/hema8293/ci-pipeline-nodejs.git'
             }
         }
-
         stage('Build') {
             steps {
                 sh 'npm install'
             }
         }
-
         stage('Test') {
             steps {
                 sh 'npm test'
             }
         }
-
-        stage('Docker Build') {
+        stage('Docker Build & Push') {
             steps {
-                sh 'docker build -t hemapriyajd/node-ci-pipeline:latest .'
-            }
-        }
-
-        stage('Docker Login & Push') {
-            steps {
-                withDockerRegistry([credentialsId: DOCKER_CREDENTIAL_ID, url: '']) {
+                withDockerRegistry([credentialsId: 'DOCKER_CREDENTIAL_ID', url: '']) {
+                    sh 'docker build -t hemapriyajd/node-ci-pipeline:latest .'
                     sh 'docker push hemapriyajd/node-ci-pipeline:latest'
                 }
             }
         }
     }
 }
- 
