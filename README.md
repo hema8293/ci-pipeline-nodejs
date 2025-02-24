@@ -20,11 +20,11 @@ npm install
 
 npm test
 
-3. Build Docker Image
+4. Build Docker Image
 
 docker build -t hemapriyajd/node-ci-pipeline:latest .
 
-4. Push Docker Image to Docker Hub
+5. Push Docker Image to Docker Hub
 
 docker push hemapriyajd/node-ci-pipeline:latest
 
@@ -32,10 +32,10 @@ docker push hemapriyajd/node-ci-pipeline:latest
 
 docker run -p 3000:3000 hemapriyajd/node-ci-pipeline:latest
 
-📌 GitHub Actions Workflow
+GitHub Actions Workflow
 The CI pipeline is automated using GitHub Actions. Every time new code is pushed, it: ✅ Builds the project
-✅ Runs unit tests
-✅ Publishes the Docker image (if tests pass)
+Runs unit tests
+Publishes the Docker image (if tests pass)
 
 .github/workflows/ci.yml
 
