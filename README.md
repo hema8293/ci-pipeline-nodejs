@@ -1,27 +1,11 @@
-# 🛠️ CI Pipeline for Node.js Project
+# CI Pipeline for Node.js Project
 
-## 📌 Mid-Term Practical - CI Pipeline with GitHub Actions
-
-### ✅ Project Overview
-This project demonstrates a Continuous Integration (CI) pipeline using **GitHub Actions** and **Docker**. It automates building, testing, and deploying a Node.js application.
-
-### ✅ Features
-- **GitHub Actions** for automated builds and tests.
-- **Jest Unit Testing** with at least **4 test cases**.
-- **Docker Integration** with **Docker Hub**.
-- **Jenkins (Bonus Task)** for CI/CD automation.
-
----
+## Mid-Term Practical - CI Pipeline with GitHub Actions
 
 ## 📁 **Project Folder Structure**
 
 /ci-pipeline-nodejs │── .github/workflows/ci.yml # GitHub Actions workflow │── Dockerfile # Docker build configuration │── index.js # Main application file │── package.json # Project dependencies │── package-lock.json # Dependency lock file │── server.js # Express server │── test/app.test.js # Jest test cases │── README.md # Project documentation
 
-
----
-
-## **🚀 Setup & Installation**
-Follow these steps to **set up and run** the project:
 
 ### 1️⃣ **Clone the Repository**
 ```sh
@@ -114,7 +98,7 @@ jobs:
         run: docker push hemapriyajd/node-ci-pipeline:latest
 
 
-🛠️ Jenkins Pipeline (Bonus Task)
+ Jenkins Pipeline (Bonus Task)
 If you are using Jenkins for CI/CD, follow these steps:
 
 1️⃣ Install Jenkins Plugins
@@ -127,27 +111,4 @@ Select Pipeline → Click OK.
 Scroll down to the Pipeline section → Choose Pipeline Script.
 
 3️⃣ Add This Jenkinsfile Script
-
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'npm test'
-            }
-        }
-        stage('Docker Build & Push') {
-            steps {
-                sh 'docker build -t hemapriyajd/node-ci-pipeline:latest .'
-                sh 'docker push hemapriyajd/node-ci-pipeline:latest'
-            }
-        }
-    }
-}
-
 
