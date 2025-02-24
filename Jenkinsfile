@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/hema8293/ci-pipeline-nodejs.git'
+                git credentialsId: 'github-credentials', url: 'https://github.com/hema8293/ci-pipeline-nodejs.git', branch: 'main'
             }
         }
         stage('Build') {
